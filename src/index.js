@@ -10,13 +10,30 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#793fb5',
+    },
+    secondary: {
+      main: '#e8e522',
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Typography>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Typography>
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Typography>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Typography>
+  </ThemeProvider>
 );
 
