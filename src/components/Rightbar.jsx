@@ -1,60 +1,13 @@
-import {
-  Avatar,
-  AvatarGroup,
-  Box,
-  Divider,
-  ImageList,
-  ImageListItem,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Divider, ImageList, ImageListItem, List, ListItem, ListItemAvatar, ListItemText, Typography, } from "@mui/material";
 import React from "react";
+
+import Frameworks from './Frameworks';
 
 const Rightbar = () => {
   return (
     <Box flex={2} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed" width={300}>
-        <Typography variant="h6" fontWeight={100}>
-          Frameworks
-        </Typography>
-        <AvatarGroup max={7}>
-          <Avatar
-            alt="React"
-            src="https://reactjs.org/logo-og.png"
-          />
-          <Avatar
-            alt="Travis Howard"
-            src="https://material-ui.com/static/images/avatar/2.jpg"
-          />
-          <Avatar
-            alt="Cindy Baker"
-            src="https://material-ui.com/static/images/avatar/3.jpg"
-          />
-          <Avatar alt="Agnes Walker" src="" />
-          <Avatar
-            alt="Trevor Henderson"
-            src="https://material-ui.com/static/images/avatar/6.jpg"
-          />
-          <Avatar
-            alt="Trevor Henderson"
-            src="https://material-ui.com/static/images/avatar/7.jpg"
-          />
-          <Avatar
-            alt="Trevor Henderson"
-            src="https://material-ui.com/static/images/avatar/8.jpg"
-          />
-          <Avatar
-            alt="Trevor Henderson"
-            src="https://material-ui.com/static/images/avatar/7.jpg"
-          />
-          <Avatar
-            alt="Trevor Henderson"
-            src="https://material-ui.com/static/images/avatar/8.jpg"
-          />
-        </AvatarGroup>
+        <Frameworks />
         <Typography variant="h6" fontWeight={100} mt={2} mb={2}>
           Latest Photos
         </Typography>

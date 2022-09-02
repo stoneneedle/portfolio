@@ -1,10 +1,15 @@
+import { Box } from "@mui/material";
+import React from "react";
+
+import HomeSticky from '../components/HomeSticky';
+
 function Home() {
   return (
-    <>
-      <h1>Home</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet recusandae, accusantium explicabo facere doloremque accusamus quis laboriosam! Minus alias corrupti eius iure, cum cumque beatae, ipsum vel perferendis cupiditate deleniti!</p>
-      
-    </>
+    <Box flex={4} p={{ xs: 0, md: 2 }}>
+      <>
+        <HomeSticky />
+      </>
+    </Box>
   );
 }
 

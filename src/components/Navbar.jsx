@@ -48,10 +48,10 @@ const Navbar = () => {
   return (
     <AppBar position="sticky">
       <StyledToolbar>
-        <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          JAMESGROTH.NET
+        <Typography variant="h5" sx={{ display: { xs: "none", sm: "block" } }}>
+          jamesgroth.net
         </Typography>
-        <Box component="img" sx={{ display: { xs: "block", sm: "none" }, height: 40, width: 40}} alt="Book" src="../assets/bookicon.png" />
+        {/* <Box component="img" sx={{ display: { xs: "block", sm: "none" }, height: 40, width: 40}} alt="Book" src="../assets/bookicon.png" />
         <Search>
           <InputBase placeholder="search..." />
         </Search>
@@ -74,9 +74,9 @@ const Navbar = () => {
             src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           />
           <Typography variant="span">John</Typography>
-        </UserBox>
+        </UserBox> */}
       </StyledToolbar>
-      <Menu
+      {/* <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         open={open}
@@ -93,7 +93,7 @@ const Navbar = () => {
         <MenuItem>Profile</MenuItem>
         <MenuItem>My account</MenuItem>
         <MenuItem>Logout</MenuItem>
-      </Menu>
+      </Menu> */}
     </AppBar>
   );
 };

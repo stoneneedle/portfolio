@@ -1,13 +1,15 @@
 import React from 'react';
 
+// MUI
 import CssBaseline from '@mui/material/CssBaseline';
-import Sidebar from "./components/Sidebar";
-import Feed from "./components/Feed";
-import Rightbar from "./components/Rightbar";
 import { Box, createTheme, Stack, ThemeProvider } from "@mui/material";
+import { useState } from "react";
+
+// Components
+import Sidebar from "./components/Sidebar";
+import Rightbar from "./components/Rightbar";
 import Navbar from "./components/Navbar";
 import Add from "./components/Add";
-import { useState } from "react";
 
 // React-Router
 import { Outlet } from 'react-router-dom';
@@ -16,7 +18,7 @@ import { Outlet } from 'react-router-dom';
 import { Routes, Route, } from 'react-router-dom';
 
 // Pages
-import Feed2 from './components/Feed2';
+import Home from './pages/Home';
 import Feed3 from './components/Feed3';
 
 // React Context API
@@ -55,8 +57,8 @@ function App() {
           <Sidebar setMode={setMode} mode={mode} />
           <Outlet />
           <Routes>
-            <Route path="/" element={<Feed />} />
-            <Route path="/about" element={<Feed2 />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<></>} />
             <Route path="/" element={<Feed3 />} />
           </Routes>
           <Rightbar />
