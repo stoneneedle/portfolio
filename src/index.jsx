@@ -5,10 +5,7 @@
 // import App from './App';
 // import Typography from "@mui/material/Typography";
 
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+
 
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import CssBaseline from '@mui/material/CssBaseline';
@@ -43,10 +40,23 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import './index.css';
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
+// React-Router
+import { BrowserRouter, } from 'react-router-dom';
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
+
       <App />
+
+    </BrowserRouter>
   </React.StrictMode>
 );
 

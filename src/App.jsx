@@ -1,7 +1,6 @@
 // import './App.css';
 
-// // React-Router
-// import { Routes, Route, useNavigate } from "react-router-dom";
+
 
 // // Pages
 // import Home from "./pages/home";
@@ -65,6 +64,8 @@
 
 // export default App;
 
+import React from 'react';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import Sidebar from "./components/Sidebar";
 import Feed from "./components/Feed";
@@ -74,10 +75,23 @@ import Navbar from "./components/Navbar";
 import Add from "./components/Add";
 import { useState } from "react";
 
+// React-Router
+import { Outlet } from 'react-router-dom';
+
+// React-Router
+import { Routes, Route, } from 'react-router-dom';
+
+// Pages
+import Feed2 from './components/Feed2';
+import Feed3 from './components/Feed3';
+
+// React Context API
+export const AppContext = React.createContext();
+
 function App() {
   const [mode, setMode] = useState("light");
 
-  const defTheme = createTheme({
+  const jgTheme = createTheme({
     palette: {
       mode: mode,
       primary: {
@@ -97,14 +111,20 @@ function App() {
       }
     }
   });
+
   return (
-    <ThemeProvider theme={defTheme}>
+    <ThemeProvider theme={jgTheme}>
       <CssBaseline />
       <Box bgcolor={"background.default"} color={"text.primary"}>
         <Navbar />
         <Stack direction="row" spacing={2} justifyContent="space-between">
-        <Sidebar setMode={setMode} mode={mode}/>
-          <Feed />
+          <Sidebar setMode={setMode} mode={mode} />
+          <Outlet />
+          <Routes>
+            <Route path="/" element={<Feed />} />
+            <Route path="/about" element={<Feed2 />} />
+            <Route path="/" element={<Feed3 />} />
+          </Routes>
           <Rightbar />
         </Stack>
         <Add />

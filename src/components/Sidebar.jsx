@@ -1,57 +1,47 @@
-import {
-  AccountBox,
-  Article,
-  Group,
-  Home,
-  ModeNight,
-} from "@mui/icons-material";
-import {
-  Icon,
-  IconButton,
-  Box,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Switch,
-} from "@mui/material";
+import { AccountBox, Article, Group, Home, ModeNight, Engineering } from "@mui/icons-material";
+import { Icon, IconButton, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Switch, } from "@mui/material";
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
+
 const Sidebar = ({ mode, setMode }) => {
+  const navigate = useNavigate();
+
+  const menuIconsLabelsList = [
+    { icon: <Home />, label: 'Home', route: '/' },
+    { icon: <Article />, label: 'CV', route: '/cv' },
+    { icon: <Group />, label: 'Contact', route: '/contact' },
+    { icon: <AccountBox />, label: 'About Me', route: '/about' },
+    { icon: <Engineering />, label: 'Projects', route: '/projects' },
+  ];
+
+  const mobileMenu = menuIconsLabelsList.map((menuIcon, index) =>
+    <ListItem disablePadding key={index}>
+      <IconButton onClick={() => navigate(menuIcon.route)} sx={{ display: { xs: 'block' }, marginLeft: "auto", marginRight: "auto" }}>
+        <Icon>
+          {menuIcon.icon}
+        </Icon>
+      </IconButton>
+    </ListItem>
+  );
+
+  const mainMenu = menuIconsLabelsList.map((menuIcon, index) =>
+    <ListItem disablePadding key={index}>
+      <ListItemButton onClick={() => navigate(menuIcon.route)}>
+        <ListItemIcon>
+          {menuIcon.icon}
+        </ListItemIcon>
+        <ListItemText primary={menuIcon.label} />
+      </ListItemButton>
+    </ListItem>
+  );
+
   return (
     <>
-      <Box p={1} sx={{ display: {xs: "block", sm: "none" } }}>
+      <Box p={1} sx={{ display: { xs: "block", sm: "none" } }}>
         <Box position="fixed">
           <List>
-            <ListItem disablePadding>
-              <IconButton alignItems="center" justifyContent="center" sx={{display: {xs: 'block'}, marginLeft: "auto", marginRight: "auto"}}>
-                <Icon>
-                  <Home />
-                </Icon>
-              </IconButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <IconButton alignItems="center" justifyContent="center" sx={{display: {xs: 'block'}, marginLeft: "auto", marginRight: "auto"}}>
-                <Icon>
-                  <Article />
-                </Icon>
-              </IconButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <IconButton alignItems="center" justifyContent="center" sx={{display: {xs: 'block'}, marginLeft: "auto", marginRight: "auto"}}>
-                <Icon>
-                  <Group />
-                </Icon>
-              </IconButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <IconButton alignItems="center" justifyContent="center" sx={{display: {xs: 'block'}, marginLeft: "auto", marginRight: "auto"}}>
-                <Icon>
-                  <AccountBox />
-                </Icon>
-              </IconButton>
-            </ListItem>
+            {mobileMenu}
             <ListItem disablePadding>
               <Switch onChange={e => setMode(mode === "light" ? "dark" : "light")} />
             </ListItem>
@@ -61,38 +51,7 @@ const Sidebar = ({ mode, setMode }) => {
       <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
         <Box position="fixed">
           <List>
-            <ListItem disablePadding>
-              <ListItemButton component="a" href="#home">
-                <ListItemIcon>
-                  <Home />
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton component="a" href="#simple-list">
-                <ListItemIcon>
-                  <Article />
-                </ListItemIcon>
-                <ListItemText primary="CV" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton component="a" href="#simple-list">
-                <ListItemIcon>
-                  <Group />
-                </ListItemIcon>
-                <ListItemText primary="Contact" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton component="a" href="#simple-list">
-                <ListItemIcon>
-                  <AccountBox />
-                </ListItemIcon>
-                <ListItemText primary="About Me" />
-              </ListItemButton>
-            </ListItem>
+            {mainMenu}
             <ListItem disablePadding>
               <ListItemButton component="a" href="#simple-list">
                 <ListItemIcon>
