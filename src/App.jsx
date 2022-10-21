@@ -9,7 +9,6 @@ import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Rightbar from "./components/Rightbar";
 import Navbar from "./components/Navbar";
-import Add from "./components/Add";
 
 // React-Router
 import { Outlet } from 'react-router-dom';
@@ -63,7 +62,6 @@ function App() {
           </Routes>
           <Rightbar />
         </Stack>
-        <Add />
       </Box>
     </ThemeProvider>
   );
